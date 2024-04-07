@@ -32,7 +32,7 @@ const extractElementInfo = (htmlContent, iifeObjects) => {
 
       for (let i = 0; i < iifeObjects.length; i++) {
         const current = iifeObjects[i];
-        if (current.ii[0] === id) {
+        if (current.ii === id) {
           image = current.s;
           break;
         }
@@ -60,7 +60,7 @@ const extractIifeObjects = (htmlContent) => {
       const ii = match[2].split(",");
 
       const cleanedIi = ii.map((item) => item.trim().replace(/'/g, ""));
-      iifeObjects.push({ s, ii: cleanedIi });
+      iifeObjects.push({ s, ii: cleanedIi[0] });
     }
   });
 
