@@ -1,17 +1,4 @@
-const fs = require("fs");
 const cheerio = require("cheerio");
-
-const readFileAsync = (filename) => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(filename, "utf8", (err, data) => {
-      if (err) {
-        reject("Error reading file: " + err);
-        return;
-      }
-      resolve(data);
-    });
-  });
-};
 
 const extractElementInfo = (htmlContent, iifeObjects) => {
   const $ = cheerio.load(htmlContent);
@@ -67,22 +54,9 @@ const extractIifeObjects = (htmlContent) => {
   return iifeObjects;
 };
 
-const extractInformationFromHTML = (fileName) => {
-  return readFileAsync(fileName)
-    .then((htmlContent) => {
-      const iifeObjects = extractIifeObjects(htmlContent);
-      return extractElementInfo(htmlContent, iifeObjects);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+module.exports = {
+  extractInformationFromHTML: (htmlContent) => {
+    const iifeObjects = extractIifeObjects(htmlContent);
+    return extractElementInfo(htmlContent, iifeObjects);
+  },
 };
-
-const file = "files/basquiat-paintings.html";
-extractInformationFromHTML(file)
-  .then((extractedInfo) => {
-    console.log(extractedInfo);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
