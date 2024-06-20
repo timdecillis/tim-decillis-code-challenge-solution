@@ -1,6 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
-const { extractInformationFromHTML } = require("./api.js");
+const { extractInformationFromHTML } = require("./extractorIife.js");
 
 module.exports = {
   processFiles: async (inputDirectoryPath, outputDirectoryPath) => {
@@ -10,7 +10,7 @@ module.exports = {
         const filepath = path.join(inputDirectoryPath, file);
 
         const htmlContent = await fs.readFile(filepath, "utf8");
-        const extractedInfo = extractInformationFromHTML(htmlContent);
+        const extractedInfo = await extractInformationFromHTML(htmlContent);
 
         const writePath = path.join(
           outputDirectoryPath,

@@ -55,7 +55,7 @@ const extractIifeObjects = (htmlContent) => {
 };
 
 module.exports = {
-  extractInformationFromHTML: (htmlContent) => {
+  extractInformationFromHTML: async(htmlContent) => {
     const iifeObjects = extractIifeObjects(htmlContent);
     return extractElementInfo(htmlContent, iifeObjects);
   },
