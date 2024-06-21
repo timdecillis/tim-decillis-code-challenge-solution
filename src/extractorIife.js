@@ -21,6 +21,7 @@ const extractElementInfo = (htmlContent, iifeObjects) => {
         const current = iifeObjects[i];
         if (current.ii === id) {
           image = current.s;
+          iifeObjects.splice(i, 1)
           break;
         }
       }
