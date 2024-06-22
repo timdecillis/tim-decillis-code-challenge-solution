@@ -21,7 +21,7 @@ The app uses `index.js` as its entry point, and from there reads the `input-html
 npm start
 ```
 ## Testing
-The test directory contains two test files:
+The `tests` directory contains two test files:
 
 1. `extractor.test.js`: This file tests the functionality of `extractor.js` by verifying the extracted results against three different HTML files to ensure the extractor works correctly across various layouts.
 2. `expected-array.test.js`: This file tests the result of using the extractor on the included `van-gogh-paintings.html` file, comparing the output to the expected results stored in `expected-array.json`.
