@@ -1,28 +1,32 @@
-# Extract Van Gogh Paintings Code Challenge
+# Tim DeCillis Code Challenge Submission
 
-Goal is to extract a list of Van Gogh paintings from the attached Google search results page.
+I had a lot of fun completing this challenge, which required evaluating several potential solutions. The primary challenge was to develop a solution flexible enough to handle various HTML layouts, including those with carousels and expandable grids.
 
-![Van Gogh paintings](https://github.com/serpapi/code-challenge/blob/master/files/van-gogh-paintings.png?raw=true "Van Gogh paintings")
+While using CSS class names to target specific elements would have been a quick hack to get a solution for a specific file, I aimed for a more flexible solution. Ultimately, I came up with a heuristic approach that searches for different structures within the HTML to locate the target image gallery.Though this approach isn't entirely fault-tolerant (as it depends on the HTML structure of the page, which is subject to change), I believe it is a solid solution given the time constraints, which produces the intended results from extracting information from both the included html file, as well as the html files which I collected from current Google search results.
 
-## Instructions
+I am eager to discuss the assessment further and welcome any feedback you may have!
 
-This is already fully supported on SerpApi. ([relevant test], [html file], [sample json], and [expected array].)
-Try to come up with your own solution and your own test.
-Extract the painting `name`, `extensions` array (date), and Google `link` in an array.
+## Getting Started
 
-Fork this repository and make a PR when ready.
+* Node.js is required to run the app.
+* Clone the repository to your local machine.
+* From the root directory of the repo, first install dependencies using
+```
+npm install
+```
+## Usage
 
-Programming language wise, Ruby (with RSpec tests) is strongly suggested but feel free to use whatever you feel like.
+The app uses `index.js` as its entry point, and from there reads the `input-html-files directory` and uses the code in `src` to extract the data from each file. It then writes the extracted data to a json file in the `output-array-files directory`. To run the program, use the following command:
+```
+npm start
+```
+## Testing
+The test directory contains two test files:
 
-Parse directly the HTML result page ([html file]) in this repository. No extra HTTP requests should be needed for anything.
+1. `extractor.test.js`: This file tests the functionality of `extractor.js` by verifying the extracted results against three different HTML files to ensure the extractor works correctly across various layouts.
+2. `expected-array.test.js`: This file tests the result of using the extractor on the included `van-gogh-paintings.html` file, comparing the output to the expected results stored in `expected-array.json`.
 
-[relevant test]: https://github.com/serpapi/test-knowledge-graph-desktop/blob/master/spec/knowledge_graph_claude_monet_paintings_spec.rb
-[sample json]: https://raw.githubusercontent.com/serpapi/code-challenge/master/files/van-gogh-paintings.json
-[html file]: https://raw.githubusercontent.com/serpapi/code-challenge/master/files/van-gogh-paintings.html
-[expected array]: https://raw.githubusercontent.com/serpapi/code-challenge/master/files/expected-array.json
-
-Add also to your array the painting thumbnails present in the result page file (not the ones where extra requests are needed). 
-
-Test against 2 other similar result pages to make sure it works against different layouts. (Pages that contain the same kind of carrousel. Don't necessarily have to be paintings.)
-
-The suggested time for this challenge is 4 hours. But, you can take your time and work more on it if you want.
+To run the tests, use the following command:
+```
+npm test
+```
