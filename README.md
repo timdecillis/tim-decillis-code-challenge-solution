@@ -16,7 +16,7 @@ npm install
 ```
 ## Usage
 
-The app uses `index.js` as its entry point, and from there reads the `input-html-files directory` and uses the code in `src` to extract the data from each file. It then writes the extracted data to a json file in the `output-array-files directory`. To run the program, use the following command:
+The app uses `index.js` as its entry point, and from there reads the `input-html-files directory` and uses the code in `src` to extract the data from each file. It then writes the extracted data to a json file in the `output-array-files directory`. To run the program use the following command:
 ```
 npm start
 ```

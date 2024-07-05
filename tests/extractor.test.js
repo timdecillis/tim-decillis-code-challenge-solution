@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const { loadAndExtractFromHTML } = require("../src/extractor.js");
+const { loadAndExtractFromHTML } = require("../src/index.js");
 
 describe("extractor methods", () => {
   test("handles error", () => {});

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const { loadAndExtractFromHTML } = require("../src/extractor.js");
+const { loadAndExtractFromHTML } = require("../src/index.js");
 
 describe("comparing expected array to output array for van gogh paintings", () => {
   const expectedArrayPath = path.join(
